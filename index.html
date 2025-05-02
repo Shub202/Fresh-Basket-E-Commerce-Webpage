@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshBasket - Your Online Grocery Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body data-theme="light"> <header class="site-header">
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <a href="#" class="logo-link">Fresh Basket</a>
+      </div>
+      <nav class="site-nav">
+        <ul class="nav-list">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#why-us">Why Us?</a></li>
+          <li><a href="#reviews">Reviews</a></li> <li class="cart-nav">
+            <a href="#cart" aria-label="View shopping cart">
+              <i class="fa-solid fa-cart-shopping"></i> Cart
+              <span id="cart-count" class="cart-count">0</span>
+            </a>
+          </li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+       <div class="header-actions">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+                <i class="fas fa-moon"></i> </button>
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+       </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <p class="hero-subtitle">Fresh Groceries, Delivered Fast</p>
+        <h1>Everything You Need, Right at Your Doorstep.</h1>
+        <p class="hero-description">
+          Discover a wide selection of fresh produce, pantry staples, and more. Quality guaranteed, convenience delivered.
+        </p>
+        <a href="#products" class="btn btn-primary">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <section id="why-us" class="why-us-section section-bg-gray"> <div class="container">
+            <h2>Why Choose Fresh Basket?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h3>Farm Fresh Produce</h3>
+                    <p>Directly sourced from local farms for peak freshness and quality.</p>
+                </div>
+                 <div class="feature-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Fast & Reliable Delivery</h3>
+                    <p>Get your groceries delivered quickly and safely, straight to your home.</p>
+                </div>
+                 <div class="feature-item">
+                    <i class="fa-solid fa-tags"></i>
+                    <h3>Great Value</h3>
+                    <p>Competitive prices and regular deals to save you money.</p>
+                </div>
+                 <div class="feature-item">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <h3>Exceptional Service</h3>
+                    <p>Our friendly team is here to ensure a smooth and pleasant shopping experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products-section section-bg-white"> <div class="container">
+        <h2>Our Products</h2>
+
+        <div class="filter-controls">
+          <div class="category-filters">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="vegetables">Vegetables</button>
+            <button class="category-btn" data-category="fruits">Fruits</button>
+            <button class="category-btn" data-category="dairy">Dairy</button>
+            <button class="category-btn" data-category="grains">Grains</button>
+            <button class="category-btn" data-category="Biscuits">Biscuits</button>
+
+          </div>
+
+          <div class="search-container">
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Search products..."
+              aria-label="Search products"
+            />
+            <button id="search-clear" title="Clear search" aria-label="Clear search">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="product-container" class="product-grid">
+          </div>
+         <div id="no-products-found" class="no-results hidden">
+             <p>No products found matching your criteria.</p>
+         </div>
+      </div>
+    </section>
+
+    <section id="cart" class="cart-section section-bg-light-green"> <div class="container">
+        <h2>Your Shopping Cart</h2>
+        <div id="cart-items" class="cart-items">
+           <p class="empty-cart-message">Your cart is empty.</p>
+        </div>
+        <div id="cart-summary" class="cart-summary hidden">
+          <h3>Order Summary</h3>
+          <p>Total Items: <span id="summary-total-items">0</span></p>
+          <p>Subtotal: ₹<span id="summary-subtotal">0.00</span></p>
+          <button id="proceed-to-checkout" class="btn btn-secondary">Proceed to Checkout</button>
+        </div>
+        <div class="trust-signals">
+          <i class="fa-solid fa-lock"></i> Secure checkout &nbsp;&nbsp;
+          <i class="fa-solid fa-credit-card"></i> Multiple payment options
+        </div>
+      </div>
+    </section>
+
+     <section id="reviews" class="reviews-section section-bg-gray"> <div class="container">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-list">
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="Female User.png" alt="Customer Avatar" class="review-avatar">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Aisha Sharma</div>
+                            <div class="review-rating">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"FreshBasket is a game-changer! The vegetables were incredibly fresh, and the delivery was so fast. Highly recommend, especially the organic selection."</p>
+                    <p class="review-product">Purchased: Organic Veggie Box</p>
+                </div>
+
+                 <div class="review-item">
+                    <div class="review-header">
+                        <img src="male.png" alt="Customer Avatar" class="review-avatar">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Raj Patel</div>
+                             <div class="review-rating">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Great service and quality. The fruits were ripe and tasty. Ordering online is very convenient. Will definitely order again."</p>
+                     <p class="review-product">Purchased: Fruits </p>
+                </div>
+
+                 <div class="review-item">
+                    <div class="review-header">
+                        <img src="female2user.png" alt="Customer Avatar" class="review-avatar">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Priya Singh</div>
+                             <div class="review-rating">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-alt"></i><i class="fa fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The delivery was prompt. Some items were perfect, one or two were slightly less fresh than expected, but overall a good experience. Their rice selection is great."</p>
+                     <p class="review-product">Purchased: Brown Rice</p>
+                </div>
+
+                </div>
+            <div class="write-review-prompt">
+                <p>Love our products? Share your experience!</p>
+                <a href="#" class="btn btn-secondary write-review-btn">Write a Review <i class="fas fa-pencil-alt"></i></a>
+                <p class="review-note">Review submission requires a verified purchase and customer account.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="payment" class="payment-section section-bg-light-yellow hidden"> <div class="container">
+            <h2>Payment Information</h2>
+             <p class="payment-intro">Please enter your payment details to complete your order.</p>
+            <div class="payment-form-container">
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="xxxx xxxx xxxx xxxx" required pattern="[0-9\s]{13,19}" inputmode="numeric" autocomplete="cc-number">
+                    </div>
+                     <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date (MM/YY)</label>
+                            <input type="text" id="expiry-date" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/\d{2}" inputmode="numeric" autocomplete="cc-exp">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="CVC" required pattern="\d{3,4}" inputmode="numeric" autocomplete="cc-csc">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                         <label for="card-name">Name on Card</label>
+                         <input type="text" id="card-name" placeholder="Full Name" required autocomplete="cc-name">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Complete Order</button>
+                </form>
+                 <div class="payment-methods">
+                    <h4>Accepted Payment Methods</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                        <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                        <i class="fab fa-cc-amex" aria-label="American Express"></i>
+                        <i class="fab fa-cc-discover" aria-label="Discover"></i>
+                        <i class="fab fa-paypal" aria-label="PayPal"></i>
+                         </div>
+                     <p class="payment-note">Payment processing is handled by a secure third-party gateway. We do not store your card details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="about-section section-bg-white"> <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <img src="aboutus.png" alt="FreshBasket Team" class="about-image">
+            <div class="about-text">
+                <p>
+                    Welcome to <strong>FreshBasket</strong>! We are dedicated to bringing you
+                    the freshest vegetables, fruits, and food items right to your doorstep.
+                    Our mission is to make healthy eating convenient and accessible for
+                    everyone.
+                </p>
+                 <p>
+                    Powered by a passion for quality produce and efficient
+                    service, we partner with local farmers and trusted brands to ensure you
+                    always get the best. We believe in sustainable practices and supporting
+                    our community, reducing food miles and carbon footprint where possible.
+                 </p>
+                 <p>
+                    Founded in 2025, FreshBasket started with a simple idea: providing busy
+                    households with easy access to healthy, affordable groceries. We are
+                    constantly expanding our product range and improving our service to
+                    meet your needs. Thank you for being a part of the FreshBasket family!
+                 </p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-bg-light-blue"> 
+      <div class="container">
+      <h2>Get in Touch</h2>
+      <div class="contact-banner-wrapper">
+        <img src="Contanct.jpg" alt="Contact Us Banner" class="contact-banner" />
+      </div>
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required aria-required="true" />
+        </div>
+
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@email.com"
+          required
+          aria-required="true"
+        />
+        </div>
+
+        <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="How can we help you?"
+          required
+          aria-required="true"
+        ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      </div>
+    </section>
+
+    <style>
+      .contact-banner-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      }
+
+      .contact-banner {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      }
+    </style>
+
+    <section class="social-section section-bg-gray no-shadow no-radius"> <div class="container">
+        <h2>Follow Us</h2>
+        <div class="social-links">
+          <a href="#" aria-label="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Like us on Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Follow us on Twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Message us on WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-section about-col">
+         <div class="logo footer-logo">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <a href="#" class="logo-link">FreshBasket</a>
+         </div>
+         <p>Your trusted source for fresh, local groceries delivered right to your door.</p>
+      </div>
+
+      <div class="footer-section links-col">
+         <h4>Quick Links</h4>
+         <ul>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#why-us">Why Us?</a></li>
+            <li><a href="#reviews">Reviews</a></li> <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+             <li><a href="#">Privacy Policy</a></li>
+             <li><a href="#">Terms of Service</a></li>
+         </ul>
+      </div>
+
+       <div class="footer-section contact-info-col">
+         <h4>Contact Info</h4>
+         <p><i class="fas fa-map-marker-alt"></i> 123 Green Street, Veggie City, VC 12345</p>
+         <p><i class="fas fa-phone-alt"></i> (123) 456-7890</p>
+         <p><i class="fas fa-envelope"></i> info@freshbasket.com</p>
+      </div>
+
+      <div class="footer-section social-col">
+        <h4>Follow Us</h4>
+         <div class="social-links">
+             <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+             <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+             <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+             <a href="#" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+         </div>
+      </div>
+    </div>
+     <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2025 FreshBasket. All rights reserved.</p>
+        </div>
+     </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
