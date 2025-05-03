@@ -212,7 +212,7 @@ body[data-theme='dark'] .section-bg-gray { background: var(--dark-mode-section-b
 body[data-theme='dark'] .section-bg-light-green { background: var(--dark-mode-section-bg-2); }
 body[data-theme='dark'] .section-bg-light-yellow { background: var(--dark-mode-section-bg-2); }
 body[data-theme='dark'] .section-bg-light-blue { background: var(--dark-mode-section-bg-2); }
-body[data-theme='dark'] section { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+body[data-theme='dark'] section { box-shadow: 0 2px 5px rgb(255, 255, 255); }
 
 
 /* --- Header --- */
@@ -752,7 +752,7 @@ body[data-theme='dark'] .site-footer {
 
 .footer-content {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;
-    padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px; border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .footer-section h4 {
